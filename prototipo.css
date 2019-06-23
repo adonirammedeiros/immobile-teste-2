@@ -1,8 +1,4 @@
-body{
-    width:375px;
-    margin-bottom: 40px;
-}
- div.FlairBuilderWidget.FlairComponentsGroup{
+div.FlairBuilderWidget.FlairComponentsGroup{
      position: fixed;
      top:0px;
  }
