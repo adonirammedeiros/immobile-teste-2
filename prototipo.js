@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+   document.body.requestFullscreen();
+
     function getElementByXpath(path) {
         return document.evaluate(path, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
       }
