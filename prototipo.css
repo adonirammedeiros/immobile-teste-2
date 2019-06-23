@@ -1,12 +1,10 @@
-div.FlairBuilderWidget.FlairComponentsGroup{
+ div.FlairBuilderWidget.FlairComponentsGroup{
      position: fixed;
      top:0px;
  }
 
  .rodape {
-    background-color:red;
-    position:fixed !important;
-    bottom:20px;
+    position:fixed;
     left:0px;
     right:0px;
     height:50px;
