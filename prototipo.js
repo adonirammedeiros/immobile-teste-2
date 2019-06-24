@@ -18,7 +18,7 @@ function montarPrototipo(){
     function exibirMensagem(elementoMensagem){
       elementoMensagem.style.display = "block";
       elementoMensagem.style.position = null;
-      elementoMensagem.style.top = "280px";
+      elementoMensagem.style.top = "350px";
       
       setTimeout(function(){
           elementoMensagem.style.display = "none";
@@ -29,7 +29,10 @@ function montarPrototipo(){
         let cabecalho = document.querySelectorAll(".FlairBuilderWidget.FlairComponentsGroup")[0]
         cabecalho.classList.add("cabecalho")
 
-        let rodape = document.querySelectorAll(".FlairBuilderWidget.FlairComponentsGroup")[3]
+        let textoCabecalho = cabecalho.querySelectorAll(".FlairBuilderWidgetLabel")[2]
+
+
+        let rodape = document.querySelectorAll('.FlairBuilderWidget.FlairComponentsGroup[style*="top: 2962px"]')[0]
         rodape.style.top = null;
         rodape.classList.add("rodape")
 
@@ -52,13 +55,13 @@ function montarPrototipo(){
         let textoBotaoSalvar = document.querySelectorAll(".FlairBuilderWidgetLabel")[16]
         let iconeBotaoSalvar = document.querySelectorAll(".icon-CheckMark")[0]
         let areaDeClickDoBotaoSalvar = document.querySelectorAll(".textHolder")[3]
-        areaDeClickDoBotaoSalvar.onclick = function(){
-          exibirMensagem(mensagemDeGravadoComSucesso)  
+        
+        if(textoCabecalho.innerText == "Novo imóvel"){
+            botaoSalvar.classList.add("botao-desabilitado")
+            textoBotaoSalvar.classList.add("texto-botao-desabilitado")
+            iconeBotaoSalvar.classList.add("texto-botao-desabilitado")
         }
-
-        botaoSalvar.classList.add("botao-desabilitado")
-        textoBotaoSalvar.classList.add("texto-botao-desabilitado")
-        iconeBotaoSalvar.classList.add("texto-botao-desabilitado")
+        
         
         let metadeDaJanela = window.innerHeight / 2;
         
@@ -80,27 +83,32 @@ function montarPrototipo(){
         }
 
       let comboTransacao = document.querySelectorAll(".FlairBuilderWidget.ComboBox>select")[6]
-      comboTransacao.onchange = function(){
-        if(comboTransacao.value != "Selecione..."){
-          botaoSalvar.classList.remove("botao-desabilitado")
-          textoBotaoSalvar.classList.remove("texto-botao-desabilitado")
-          iconeBotaoSalvar.classList.remove("texto-botao-desabilitado")
-
-          botaoSalvar.classList.add("botao-habilitado")
-          textoBotaoSalvar.classList.add("botao-habilitado")
-          iconeBotaoSalvar.classList.add("botao-habilitado")      
-          rodape.onclick = function(){exibirMensagem(mensagemDeGravadoComSucesso)}
-        }else{
-          botaoSalvar.classList.add("botao-desabilitado")
-          textoBotaoSalvar.classList.add("texto-botao-desabilitado")
-          iconeBotaoSalvar.classList.add("texto-botao-desabilitado")
-
-          botaoSalvar.classList.remove("botao-habilitado")
-          textoBotaoSalvar.classList.remove("botao-habilitado")
-          iconeBotaoSalvar.classList.remove("botao-habilitado")              
-          rodape.onclick = null
-        }
-      }  
+      if(textoCabecalho.innerText == "Novo imóvel"){
+          comboTransacao.onchange = function(){
+            if(comboTransacao.value != "Selecione..."){
+              botaoSalvar.classList.remove("botao-desabilitado")
+              textoBotaoSalvar.classList.remove("texto-botao-desabilitado")
+              iconeBotaoSalvar.classList.remove("texto-botao-desabilitado")
+    
+              botaoSalvar.classList.add("botao-habilitado")
+              textoBotaoSalvar.classList.add("botao-habilitado")
+              iconeBotaoSalvar.classList.add("botao-habilitado") 
+              areaDeClickDoBotaoSalvar.onclick = function(){ exibirMensagem(mensagemDeGravadoComSucesso) }     
+            }else{
+              botaoSalvar.classList.add("botao-desabilitado")
+              textoBotaoSalvar.classList.add("texto-botao-desabilitado")
+              iconeBotaoSalvar.classList.add("texto-botao-desabilitado")
+    
+              botaoSalvar.classList.remove("botao-habilitado")
+              textoBotaoSalvar.classList.remove("botao-habilitado")
+              iconeBotaoSalvar.classList.remove("botao-habilitado")              
+              areaDeClickDoBotaoSalvar.onclick = null
+            }
+          }
+      }else{
+        areaDeClickDoBotaoSalvar.onclick = function(){ exibirMensagem(mensagemDeGravadoComSucesso) }             
+      }
+  
     }catch(e){
       console.log(e)
     }
