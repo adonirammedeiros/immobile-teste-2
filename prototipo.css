@@ -1,12 +1,33 @@
- div.FlairBuilderWidget.FlairComponentsGroup{
-     position: fixed;
-     top:0px;
+.cabecalho {
+    position: fixed;
+    top:0px;
+}
+
+ .rodape{
+    position:fixed !important;
+    bottom:0px;
+    left:0px;
+    width: 100%;
  }
 
- .rodape {
-    position:fixed;
-    left:0px;
-    right:0px;
-    height:50px;
-    margin-bottom:0px;
+ .sublinhado {
+    border-bottom: thick solid #388275;
+    min-width: 0px !important;
+
+ }
+
+.botao-desabilitado{
+    fill: #BEBEBE !important;
+ }
+
+.texto-botao-desabilitado{
+    color:#676767 !important;
+ }
+
+.botao-habilitado{
+     fill:  #388275 !important;    
+ }
+
+.texto-botao-habilitado{
+     color:white !important;
  }
